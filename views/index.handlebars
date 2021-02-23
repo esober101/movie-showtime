@@ -1,0 +1,52 @@
+<div class="jumbotron">
+  <img class="displayed" src="/assets/img/movies.png">
+</div>
+
+
+<h1> Movie Showtime </h1> 
+  <div class="grid-container">
+    <div class="grid-child-left">
+      <h2> Ready To Watch </h2>
+        {{#each movies}}
+          {{#unless watched}}
+            {{> movies/movie-block watch=true}}
+          {{/unless}}
+        {{/each}}
+    </div>
+
+      <div class="grid-child-right">
+        <h2> Recently Watched </h2>
+        {{#each movies}}
+          {{#if watched}}
+            {{> movies/movie-block watch=false}}
+          {{/if}}
+        {{/each}}
+      </div>
+  </div>
+
+  
+<form class="create-form">
+  <h2>Add a Movie</h2>   
+    <div class="form-group">
+      <input type="text" id="ca" name="name">
+    </div>
+
+    <div class="form-group">
+      <br>
+      <input type="radio" name="watched" value="0" checked>  Ready
+      <input type="radio" name="watched" value="1"> Watched   
+      <br>
+      <br>
+      <button type="submit">Submit</button>
+    </div>      
+</form>
+
+  <!-- Video Container -->  
+  </figure>
+    <div class="video-container">
+        <div class="color-overlay"></div>
+          <video autoplay loop muted playsinline poster="">
+          <source src="../public/assets/img/video.mp4" type="video.mp4">
+        </video>
+    </div>
+  </figure>
